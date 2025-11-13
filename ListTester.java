@@ -200,6 +200,7 @@ public class ListTester {
 		testTwoElementList(A_add0B_BA, "A_addToIndex0B_BA", LIST_BA, STRING_BA);
 		//1-element to changed 1-element via set()
 			// Scenario: 16
+		testSingleElementList(A_set0B_B, "A_set0B_B", LIST_B, STRING_B);
 
 			
 		//2-element to empty list
@@ -249,7 +250,7 @@ public class ListTester {
 			
 		//3-element to 2-element
 			// Scenario: 33
-
+		testTwoElementList(ABC_removeFirst_BC, "ABC_removeFirst_BC", LIST_BC, STRING_BC);
 			// Scenario: 37
 
 			// Scenario: 39
@@ -435,6 +436,12 @@ public class ListTester {
 	/** Scenario #16: [A] -> set(0,B) -> [B] Evan
 	 * @return [B] after set(0,B)
 	 */
+	private IndexedUnsortedList<Integer> A_set0B_B() {
+		IndexedUnsortedList<Integer> list = emptyList_addToFrontA_A();
+		list.set(0, ELEMENT_B);
+		return list;
+	}
+	private Scenario<Integer> A_set0B_B = () -> A_set0B_B();
 
 	 
 	/** Scenario #17: [A,B] -> addToFront(C) -> [C,A,B] Evan
@@ -512,7 +519,12 @@ public class ListTester {
 	/** Scenario #33: [A,B,C] -> removeFirst() -> [B,C] Evan
 	 * @return [B,C] after removeFirst()
 	 */
-
+	private IndexedUnsortedList<Integer> ABC_removeFirst_BC() {
+		IndexedUnsortedList<Integer> list = AB_addAfterBC_ABC();
+		list.removeFirst();
+		return list;
+	}
+	private Scenario<Integer> ABC_removeFirst_BC = () -> ABC_removeFirst_BC();
 	 
 	/** Scenario #37: [A,B,C] -> remove(C) -> [A,B] Wesley
 	 * @return [A,B] after remove(C)
