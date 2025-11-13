@@ -432,7 +432,7 @@ public class ListTester {
 	private Scenario<Integer> A_remove0_emptyList = () -> A_remove0_emptyList();
 
 	 
-	/** Scenario #16: [A] -> set(0,B) -> [B] 
+	/** Scenario #16: [A] -> set(0,B) -> [B] Evan
 	 * @return [B] after set(0,B)
 	 */
 
@@ -456,7 +456,7 @@ public class ListTester {
 		return list;
 	}
 	 private Scenario<Integer> AB_addAfterBC_ABC =() -> AB_addAfterBC_ABC();
-	/** Scenario #23: [A,B] -> add(1,C) -> [A,C,B] 
+	/** Scenario #23: [A,B] -> add(1,C) -> [A,C,B] Wesley
 	 * @return [A,C,B] after add(1,C)
 	 */
 
@@ -483,7 +483,7 @@ public class ListTester {
 	private Scenario<Integer> AB_removeLast_A = () -> AB_removeLast_A();
 
 	 
-	/** Scenario #27: [A,B] -> remove(A) -> [B]
+	/** Scenario #27: [A,B] -> remove(A) -> [B] Nazifa
 	 * @return [B] after remove(A)
 	 */
 
@@ -499,27 +499,27 @@ public class ListTester {
 	private Scenario<Integer> AB_removeB_A = () -> AB_removeB_A();
 
 	 
-	/** Scenario #29: [A,B] -> remove(0) -> [B]
+	/** Scenario #29: [A,B] -> remove(0) -> [B] Gabe
 	 * @return [B] after remove(0)
 	 */
 
 	 
-	/** Scenario #30: [A,B] -> remove(1) -> [A]
+	/** Scenario #30: [A,B] -> remove(1) -> [A] Daniel
 	 * @return [A] after remove(1)
 	 */
 
 	 
-	/** Scenario #33: [A,B,C] -> removeFirst() -> [B,C]
+	/** Scenario #33: [A,B,C] -> removeFirst() -> [B,C] Evan
 	 * @return [B,C] after removeFirst()
 	 */
 
 	 
-	/** Scenario #37: [A,B,C] -> remove(C) -> [A,B]
+	/** Scenario #37: [A,B,C] -> remove(C) -> [A,B] Wesley
 	 * @return [A,B] after remove(C)
 	 */
 
 	 
-	/** Scenario #39: [A,B,C] -> remove(1) -> [A,C]
+	/** Scenario #39: [A,B,C] -> remove(1) -> [A,C] Nazifa
 	 * @return [A,C] after remove(1)
 	 */
 
