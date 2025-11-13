@@ -106,14 +106,12 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 
 	@Override
 	public E first() {
-		// TODO 
-		return null;
+		return front.getElement();
 	}
 
 	@Override
 	public E last() {
-		// TODO 
-		return null;
+		return rear.getElement();
 	}
 
 	@Override
@@ -124,14 +122,12 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 
 	@Override
 	public boolean isEmpty() {
-		// TODO 
-		return false;
+		return size() == 0;
 	}
 
 	@Override
 	public int size() {
-		// TODO 
-		return 0;
+		return count;
 	}
 
 	@Override
