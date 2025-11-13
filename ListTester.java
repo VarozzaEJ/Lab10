@@ -506,7 +506,7 @@ public class ListTester {
 	private Scenario<Integer> AB_removeB_A = () -> AB_removeB_A();
 
 	 
-	/** Scenario #29: [A,B] -> remove(0) -> [B] Gabe
+	/** Scenario #29: [A,B] -> remove(0) -> [B] Gabe (test)
 	 * @return [B] after remove(0)
 	 */
 
