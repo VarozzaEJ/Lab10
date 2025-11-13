@@ -23,8 +23,14 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 
 	@Override
 	public void addToFront(E element) {
-		// TODO 
-		
+		LinearNode<E> newNode = new LinearNode<E>(element);
+		newNode.setNext(front);
+		front = newNode;
+		if (rear == null) {
+			rear = newNode;
+		}
+		count++;
+		modCount++;
 	}
 
 	@Override
@@ -37,6 +43,8 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 	public void add(E element) {
 		// TODO 
 		
+
+		modCount++;
 	}
 
 	@Override
