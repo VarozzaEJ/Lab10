@@ -19,7 +19,7 @@ public class ListTester {
 		goodList, badList, arrayList, singleLinkedList, doubleLinkedList
 	};
 	// TODO: THIS IS WHERE YOU CHOOSE WHICH LIST TO TEST
-	private final static ListToUse LIST_TO_USE = ListToUse.arrayList;
+	private final static ListToUse LIST_TO_USE = ListToUse.singleLinkedList;
 
 	// possible results expected in tests
 	private enum Result {
@@ -227,7 +227,7 @@ public class ListTester {
 			
 		//2-element to 3-element
 			// Scenario: 17
-
+		testThreeElementList(AB_addToFrontC_CAB, "AB_addToFrontC_CAB", LIST_CAB, STRING_CAB);
 			// Scenario: 20 
 		testThreeElementList(AB_addAfterBC_ABC, "AB_addAfterBC_ABC", LIST_ABC, STRING_ABC);
 			// Scenario: 23
@@ -300,12 +300,12 @@ public class ListTester {
 		case badList:
 			listToUse = new BadList<Integer>();
 			break;
-		case arrayList:
-			listToUse = new IUArrayList<Integer>();
-			break;
-		// case singleLinkedList:
-		// 	listToUse = new IUSingleLinkedList<Integer>();
+		// case arrayList:
+		// 	listToUse = new IUArrayList<Integer>();
 		// 	break;
+		case singleLinkedList:
+			listToUse = new IUSingleLinkedList<Integer>();
+			break;
 		// case doubleLinkedList:
 		// 	listToUse = new IUDoubleLinkedList<Integer>();
 		// 	break;
@@ -439,7 +439,12 @@ public class ListTester {
 	/** Scenario #17: [A,B] -> addToFront(C) -> [C,A,B] Evan
 	 * @return [C,A,B] after addToFront(C)
 	 */
-
+	private IndexedUnsortedList<Integer> AB_addToFrontC_CAB() {
+		IndexedUnsortedList<Integer> list = A_addToRearB_AB();
+		list.addToFront(ELEMENT_C);
+		return list;
+	}
+	private Scenario<Integer> AB_addToFrontC_CAB = () -> AB_addToFrontC_CAB();
 	 
 	/** Scenario #20: [A,B] -> addAfter(C,B) -> [A,B,C] Nazifa
 	 * @return [A,B,C] after addAfter(C,B) // Scenario 20 is done
