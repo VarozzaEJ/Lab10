@@ -35,7 +35,15 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 
 	@Override
 	public void addToRear(E element) {
-		// TODO 
+		LinearNode<E> newNode = new LinearNode<E>(element);
+		if (rear != null) {
+			rear.setNext(newNode);
+		} else {
+			front = newNode;
+		}
+		rear = newNode;
+		count++;
+		modCount++;
 		
 	}
 
