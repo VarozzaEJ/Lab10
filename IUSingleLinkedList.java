@@ -126,8 +126,14 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 
 	@Override
 	public E get(int index) {
-		// TODO 
-		return null;
+		LinearNode<E> current = front;
+		if (index < 0 || index >= size()) {
+			throw new IndexOutOfBoundsException();
+		}
+		for (int i = 0; i < index; i++) {
+			current = current.getNext();
+		}
+		return current.getElement();
 	}
 
 	@Override

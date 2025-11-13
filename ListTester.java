@@ -536,57 +536,57 @@ public class ListTester {
 	 */
 
 	 
-	/** Scenario #44: [A] -> iterator, next(), remove() -> []
+	/** Scenario #44: [A] -> iterator, next(), remove() -> [] Evan
 	 * @return [] after iterator, next(), remove()
 	 */
 
 	 
-	/** Scenario #45: [A,B] -> iterator, next(), remove() -> [B]
+	/** Scenario #45: [A,B] -> iterator, next(), remove() -> [B] Wesley
 	 * @return [B] after iterator, next(), remove()
 	 */
 
 	 
-	/** Scenario #46: [A,B] -> iterator, next(), next(), remove() -> [A]
+	/** Scenario #46: [A,B] -> iterator, next(), next(), remove() -> [A] Nazifa
 	 * @return [A] after iterator, next(), next(), remove()
 	 */
 
 	 
-	/** Scenario #47: [A,B] -> iterator, next(), remove(), next(), remove() -> []
+	/** Scenario #47: [A,B] -> iterator, next(), remove(), next(), remove() -> [] Gabe
 	 * @return [] after iterator, next(), remove(), next(), remove()
 	 */
 
 	 
-	/** Scenario #48: [A,B,C] -> iterator, next(), remove() -> [B,C]
+	/** Scenario #48: [A,B,C] -> iterator, next(), remove() -> [B,C] Daniel
 	 * @return [B,C] after iterator, next(), remove()
 	 */
 
 	 
-	/** Scenario #49: [A,B,C] -> iterator, next(), next(), remove() -> [A,C]
+	/** Scenario #49: [A,B,C] -> iterator, next(), next(), remove() -> [A,C] Evan
 	 * @return [A,C] after iterator, next(), next(), remove()
 	 */
 
 	 
-	/** Scenario #50: [A,B,C] -> iterator, next(), next(), next(), remove() -> [A,B]
+	/** Scenario #50: [A,B,C] -> iterator, next(), next(), next(), remove() -> [A,B] Wesley
 	 * @return [A,B] after iterator, next(), next(), next(), remove()
 	 */
 
 	 
-	/** Scenario #51: [A,B,C] -> iterator, next(), remove(), next(), remove() -> [C]
+	/** Scenario #51: [A,B,C] -> iterator, next(), remove(), next(), remove() -> [C] Nazifa
 	 * @return [C] after iterator, next(), remove(), next(), remove()
 	 */
 
 	 
-	/** Scenario #52: [A,B,C] -> iterator, next(), remove(), next(), next(), remove() -> [B]
+	/** Scenario #52: [A,B,C] -> iterator, next(), remove(), next(), next(), remove() -> [B] Gabe
 	 * @return [B] after iterator, next(), remove(), next(), next(), remove()
 	 */
 
 	 
-	/** Scenario #53: [A,B,C] -> iterator, next(), next(), remove(), next(), remove() -> [A]
+	/** Scenario #53: [A,B,C] -> iterator, next(), next(), remove(), next(), remove() -> [A] Daniel
 	 * @return [A] after iterator, next(), next(), remove(), next(), remove()
 	 */
 
 	 
-	/** Scenario #54: [A,B,C] -> iterator, next(), remove(), next(), remove(), next(), remove() -> []
+	/** Scenario #54: [A,B,C] -> iterator, next(), remove(), next(), remove(), next(), remove() -> [] Evan
 	 * @return [] after iterator, next(), remove(), next(), remove(), next(), remove()
 	 */
 
