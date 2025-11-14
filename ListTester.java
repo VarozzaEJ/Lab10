@@ -561,6 +561,15 @@ public class ListTester {
 	/** Scenario #46: [A,B] -> iterator, next(), next(), remove() -> [A] Nazifa
 	 * @return [A] after iterator, next(), next(), remove()
 	 */
+	private IndexedUnsortedList<Integer> AB_iteratorNextNextRemove_A() {
+		IndexedUnsortedList<Integer> list = A_addToRearB_AB();
+		Iterator<Integer> iter = list.iterator();
+		iter.next();
+		iter.next();
+		iter.remove();
+		return list;
+	}
+	private Scenario<Integer> AB_iteratorNextNextRemove_A = () -> AB_iteratorNextNextRemove_A();
 
 	 
 	/** Scenario #47: [A,B] -> iterator, next(), remove(), next(), remove() -> [] Gabe
