@@ -493,6 +493,12 @@ public class ListTester {
 	/** Scenario #27: [A,B] -> remove(A) -> [B] Nazifa
 	 * @return [B] after remove(A)
 	 */
+	private IndexedUnsortedList<Integer> AB_removeA_B() {
+		IndexedUnsortedList<Integer> list = A_addToRearB_AB();
+		list.remove(ELEMENT_A);
+		return list;
+	}
+	private Scenario<Integer> AB_removeA_B = () -> AB_removeA_B();
 
 	 
 	/** Scenario #28: [A,B] -> remove(B) -> [A] Wesley
