@@ -540,6 +540,12 @@ public class ListTester {
 	/** Scenario #39: [A,B,C] -> remove(1) -> [A,C] Nazifa
 	 * @return [A,C] after remove(1) //test
 	 */
+	private IndexedUnsortedList<Integer> ABC_remove1_AC() {
+		IndexedUnsortedList<Integer> list = AB_addAfterBC_ABC();
+		list.remove(1);
+		return list;
+	}
+	private Scenario<Integer> ABC_remove1_AC = () -> ABC_remove1_AC();
 
 	 
 	/** Scenario #44: [A] -> iterator, next(), remove() -> [] Evan
