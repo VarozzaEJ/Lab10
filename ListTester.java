@@ -532,7 +532,7 @@ public class ListTester {
 
 	 
 	/** Scenario #39: [A,B,C] -> remove(1) -> [A,C] Nazifa
-	 * @return [A,C] after remove(1)
+	 * @return [A,C] after remove(1) //test
 	 */
 
 	 

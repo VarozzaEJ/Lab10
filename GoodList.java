@@ -13,7 +13,7 @@ import java.util.Iterator;
 public class GoodList<E> implements IndexedUnsortedList<E> {
 	private LinkedList<E> list;
 	
-	public GoodList() { //nazifa
+	public GoodList() { 
 		list = new LinkedList<E>();
 	}
 
