@@ -211,7 +211,6 @@ public class ListTester {
 		//2-element to 1-element
 			// Scenario: 25
 		testSingleElementList(AB_removeFirst_B, "AB_removeFirst_B", LIST_B, STRING_B);
-
 			// Scenario: 26
 		testSingleElementList(AB_removeLast_A, "AB_removeLast_A", LIST_A, STRING_A);
 			// Scenario: 27
@@ -233,7 +232,7 @@ public class ListTester {
 			// Scenario: 20 
 		testThreeElementList(AB_addAfterBC_ABC, "AB_addAfterBC_ABC", LIST_ABC, STRING_ABC);
 			// Scenario: 23
-
+		testThreeElementList(AB_add1C_ACB, "AB_add1C_ACB", LIST_ACB, STRING_ACB);
 			
 		//2-element to changed 2-element via set()
 
@@ -254,7 +253,7 @@ public class ListTester {
 			// Scenario: 33
 		testTwoElementList(ABC_removeFirst_BC, "ABC_removeFirst_BC", LIST_BC, STRING_BC);
 			// Scenario: 37
-
+		testTwoElementList(ABC_removeC_AB, "ABC_removeC_AB", LIST_AB, STRING_AB);
 			// Scenario: 39
 		testTwoElementList(ABC_remove1_AC, "ABC_remove1_AC", LIST_AC, STRING_AC);
 			// Scenario: 48
@@ -262,7 +261,7 @@ public class ListTester {
 			// Scenario: 49
 		testTwoElementList(ABC_iteratorNextNextRemove_AC, "ABC_iteratorNextNextRemove_AC", LIST_AC, STRING_AC);
 			// Scenario: 50
-
+		testTwoElementList(ABC_iterNextNextNextRemove_AB, "ABC_iterNextNextNextRemove_AB", LIST_AB, STRING_AB);
 			
 		//3-element to changed 3-element via set()
 
@@ -468,7 +467,12 @@ public class ListTester {
 	/** Scenario #23: [A,B] -> add(1,C) -> [A,C,B] Wesley
 	 * @return [A,C,B] after add(1,C)
 	 */
-
+	private IndexedUnsortedList<Integer> AB_add1C_ACB() {
+		IndexedUnsortedList<Integer> list = A_addToRearB_AB();
+		list.add(1, ELEMENT_C);
+		return list;
+	}
+	private Scenario<Integer> AB_add1C_ACB = () -> AB_add1C_ACB();
 	 
 	/** Scenario #25: [A,B] -> removeFirst() -> [B] Gabe
 	 * @return [B] after removeFirst()
@@ -537,6 +541,12 @@ public class ListTester {
 	/** Scenario #37: [A,B,C] -> remove(C) -> [A,B] Wesley
 	 * @return [A,B] after remove(C)
 	 */
+	private IndexedUnsortedList<Integer> ABC_removeC_AB() {
+		IndexedUnsortedList<Integer> list = AB_addToFrontC_CAB();
+		list.remove(ELEMENT_C);
+		return list;
+	}
+	private Scenario<Integer> ABC_removeC_AB = () -> ABC_removeC_AB();
 
 	 
 	/** Scenario #39: [A,B,C] -> remove(1) -> [A,C] Nazifa
@@ -566,6 +576,14 @@ public class ListTester {
 	/** Scenario #45: [A,B] -> iterator, next(), remove() -> [B] Wesley
 	 * @return [B] after iterator, next(), remove()
 	 */
+	private IndexedUnsortedList<Integer> AB_iterNextRemove_B() {
+		IndexedUnsortedList<Integer> list = A_addToRearB_AB();
+		Iterator<Integer> iter = list.iterator();
+		iter.next();
+		iter.remove();
+		return list;
+	}
+	private Scenario<Integer> AB_iterNextRemove_B = () -> AB_iterNextRemove_B();
 
 	 
 	/** Scenario #46: [A,B] -> iterator, next(), next(), remove() -> [A] Nazifa
@@ -609,6 +627,16 @@ public class ListTester {
 	/** Scenario #50: [A,B,C] -> iterator, next(), next(), next(), remove() -> [A,B] Wesley
 	 * @return [A,B] after iterator, next(), next(), next(), remove()
 	 */
+	private IndexedUnsortedList<Integer> ABC_iterNextNextNextRemove_AB() {
+		IndexedUnsortedList<Integer> list = AB_addToFrontC_CAB();
+		Iterator<Integer> iter = list.iterator();
+		iter.next();
+		iter.next();
+		iter.next();
+		iter.remove();
+		return list;
+	}
+	private Scenario<Integer> ABC_iterNextNextNextRemove_AB = () -> ABC_iterNextNextNextRemove_AB();
 
 	 
 	/** Scenario #51: [A,B,C] -> iterator, next(), remove(), next(), remove() -> [C] Nazifa
