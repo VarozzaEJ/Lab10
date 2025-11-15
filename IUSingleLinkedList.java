@@ -120,8 +120,15 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 
 	@Override
 	public void set(int index, E element) {
-		// TODO 
-		
+		LinearNode<E> current = front;
+		if (index < 0 || index >= size()) {
+			throw new IndexOutOfBoundsException();
+		}
+		for (int i = 0; i < index; i++) {
+			current = current.getNext();
+		}
+		System.out.println();
+		current.setElement(element);
 	}
 
 	@Override
@@ -138,8 +145,16 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 
 	@Override
 	public int indexOf(E element) {
-		// TODO 
-		return 0;
+		LinearNode<E> current = front;
+		int index = 0;
+		while (current != null) {
+			if (current.getElement().equals(element)) {
+				return index;
+			}
+			current = current.getNext();
+			index++;
+		}
+		return -1;
 	}
 
 	@Override
@@ -154,7 +169,13 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 
 	@Override
 	public boolean contains(E target) {
-		// TODO 
+		LinearNode<E> current = front;
+		while (current != null) {
+			if (current.getElement().equals(target)) {
+				return true;
+			}
+			current = current.getNext();
+		}
 		return false;
 	}
 
@@ -170,8 +191,17 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 
 	@Override
 	public String toString() {
-		// TODO
-		return "";
+		String result = "[";
+		LinearNode<E> current = front;
+		while (current != null) {
+			result += current.getElement().toString();
+			if (current.getNext() != null) {
+				result += ", ";
+			}
+			current = current.getNext();
+		}
+		result += "]";
+		return result;
 	}
 
 	private E removeElement(LinearNode<E> previous, LinearNode<E> current) {
