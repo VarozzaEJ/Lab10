@@ -189,6 +189,7 @@ public class ListTester {
 			// Scenario: 15
 		testEmptyList(A_remove0_emptyList, "A_remove0_emptyList");
 			// Scenario: 44
+		testEmptyList(A_iteratorNextRemove_empty, "A_iteratorNextRemove_empty");
 
 
 		//1-element to 2-element
@@ -238,7 +239,8 @@ public class ListTester {
 
 		//3-element to empty list
 			// Scenario: 54
-
+			//"String_ABD needs to be changed to match scenario"
+		testEmptyList(ABC_iteratorNextRemove_NextRemove_NextRemove_empty, STRING_ABD);
 			
 		//3-element to 1-element
 			// Scenario: 51
@@ -258,7 +260,7 @@ public class ListTester {
 			// Scenario: 48
 
 			// Scenario: 49
-
+		testTwoElementList(ABC_iteratorNextNextRemove_AC, "ABC_iteratorNextNextRemove_AC", LIST_AC, STRING_AC);
 			// Scenario: 50
 
 			
@@ -551,6 +553,14 @@ public class ListTester {
 	/** Scenario #44: [A] -> iterator, next(), remove() -> [] Evan
 	 * @return [] after iterator, next(), remove()
 	 */
+	private IndexedUnsortedList<Integer> A_iteratorNextRemove_empty() {
+		IndexedUnsortedList<Integer> list = emptyList_addToFrontA_A();
+		Iterator<Integer> iter = list.iterator();
+		iter.next();
+		iter.remove();
+		return list;
+	}
+	private Scenario<Integer> A_iteratorNextRemove_empty = () -> A_iteratorNextRemove_empty();
 
 	 
 	/** Scenario #45: [A,B] -> iterator, next(), remove() -> [B] Wesley
@@ -585,6 +595,15 @@ public class ListTester {
 	/** Scenario #49: [A,B,C] -> iterator, next(), next(), remove() -> [A,C] Evan
 	 * @return [A,C] after iterator, next(), next(), remove()
 	 */
+	private IndexedUnsortedList<Integer> ABC_iteratorNextNextRemove_AC() {
+		IndexedUnsortedList<Integer> list = AB_addAfterBC_ABC();
+		Iterator<Integer> iter = list.iterator();
+		iter.next();
+		iter.next();
+		iter.remove();
+		return list;
+	}
+	private Scenario<Integer> ABC_iteratorNextNextRemove_AC = () -> ABC_iteratorNextNextRemove_AC();
 
 	 
 	/** Scenario #50: [A,B,C] -> iterator, next(), next(), next(), remove() -> [A,B] Wesley
@@ -621,6 +640,18 @@ public class ListTester {
 	/** Scenario #54: [A,B,C] -> iterator, next(), remove(), next(), remove(), next(), remove() -> [] Evan
 	 * @return [] after iterator, next(), remove(), next(), remove(), next(), remove()
 	 */
+	private IndexedUnsortedList<Integer> ABC_iteratorNextRemove_NextRemove_NextRemove_empty() {
+		IndexedUnsortedList<Integer> list = AB_addAfterBC_ABC();
+		Iterator<Integer> iter = list.iterator();
+		iter.next();
+		iter.remove();
+		iter.next();
+		iter.remove();
+		iter.next();
+		iter.remove();
+		return list;
+	}
+	private Scenario<Integer> ABC_iteratorNextRemove_NextRemove_NextRemove_empty = () -> ABC_iteratorNextRemove_NextRemove_NextRemove_empty();
 
 	 
 	/////////////////////////////////
