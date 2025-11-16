@@ -522,9 +522,7 @@ public class ListTester {
 	 * @return [B] after remove(0)
 	 */
 	private IndexedUnsortedList<Integer> AB_remove0_B() {
-		IndexedUnsortedList<Integer> list = newList();
-		list.add(ELEMENT_A);
-		list.add(ELEMENT_B);
+		IndexedUnsortedList<Integer> list = A_addToRearB_AB();
 		list.remove(0);
 		return list;
 	}
