@@ -321,6 +321,9 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
             if (iterModCount != modCount) {
                 throw new ConcurrentModificationException();
             }
+			if (!removeAble) {
+				throw new IllegalStateException();
+			}
             if (current == null) {
                 throw new IllegalStateException();
             }
