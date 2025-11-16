@@ -617,11 +617,11 @@ public class ListTester {
 	 */
 	private IndexedUnsortedList<Integer> AB_iterNextRemoveNextRemove() {
 		IndexedUnsortedList<Integer> list = A_addToRearB_AB();
-		Iterator<Integer> iterator = list.iterator();
-		iterator.next();
-		iterator.remove();
-		iterator.next();
-		iterator.remove();
+		Iterator<Integer> iter = list.iterator();
+		iter.next();
+		iter.remove();
+		iter.next();
+		iter.remove();
 		return list;
 	}
 	private Scenario<Integer> AB_iterNextRemoveNextRemove = () -> AB_iterNextRemoveNextRemove();
@@ -688,12 +688,12 @@ public class ListTester {
 	 */
 	private IndexedUnsortedList<Integer> ABC_iterNextRemoveNextNextRemove_B() {
 		IndexedUnsortedList<Integer> list = AB_addAfterBC_ABC();
-		Iterator<Integer> iterator = list.iterator();
-		iterator.next();
-		iterator.remove();
-		iterator.next();
-		iterator.next();
-		iterator.remove();
+		Iterator<Integer> iter = list.iterator();
+		iter.next();
+		iter.remove();
+		iter.next();
+		iter.next();
+		iter.remove();
 		return list;
 	}
 	private Scenario<Integer> ABC_iterNextRemoveNextNextRemove_B = () -> ABC_iterNextRemoveNextNextRemove_B();
