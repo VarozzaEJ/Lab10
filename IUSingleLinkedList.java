@@ -240,7 +240,7 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 		while (current != null) {
 			result += current.getElement().toString();
 			if (current.getNext() != null) {
-				result += ", ";
+				result += ",";
 			}
 			current = current.getNext();
 		}
