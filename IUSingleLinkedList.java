@@ -49,21 +49,64 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 
 	@Override
 	public void add(E element) {
-		// TODO 
-		
-
+		LinearNode<E> newNode = new LinearNode<E>(element);
+		if (rear != null) {
+			rear.setNext(newNode);
+		} else {
+			front = newNode;
+		}
 		modCount++;
+		count++;
+		rear = newNode;
 	}
 
 	@Override
 	public void addAfter(E element, E target) {
-		// TODO 
+		LinearNode<E> current = front;
+		while (current != null && !current.getElement().equals(target)) {
+			current = current.getNext();
+		}
+		// Target not found
+		if (current == null) {
+			throw new NoSuchElementException();
+		}
+		LinearNode<E> newNode = new LinearNode<E>(element);
+		newNode.setNext(current.getNext());
+		current.setNext(newNode);
+		if (newNode.getNext() == null) {
+			rear = newNode;
+		}
+		count++;
+		modCount++;
 		
 	}
 
 	@Override
 	public void add(int index, E element) {
-		// TODO 
+		LinearNode<E> newNode = new LinearNode<E>(element);
+		if (index < 0 || index > size()) {
+			throw new IndexOutOfBoundsException();
+		}
+		if (index == 0) {
+			newNode.setNext(front);
+			front = newNode;
+			if (rear == null) {
+				rear = newNode;
+			}
+		} else {
+			LinearNode<E> current = front, previous = null;
+			for (int i = 0; i < index; i++) {
+				previous = current;
+				current = current.getNext();
+			}
+			previous.setNext(newNode);
+			newNode.setNext(current);
+			if (newNode.getNext() == null) {
+				rear = newNode;
+			}
+		}
+		count++;
+		modCount++;
 		
 	}
 
@@ -129,6 +172,7 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 		}
 		System.out.println();
 		current.setElement(element);
+		modCount++;
 	}
 
 	@Override
