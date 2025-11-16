@@ -203,13 +203,19 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 
 	@Override
 	public E first() {
-		return front.getElement();
-	}
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+        return front.getElement();
+    }
 
 	@Override
 	public E last() {
-		return rear.getElement();
-	}
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+        return rear.getElement();
+    }	
 
 	@Override
 	public boolean contains(E target) {
@@ -240,7 +246,7 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 		while (current != null) {
 			result += current.getElement().toString();
 			if (current.getNext() != null) {
-				result += ",";
+				result += ", ";
 			}
 			current = current.getNext();
 		}
@@ -278,6 +284,7 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 		private LinearNode<E> current;
 		private LinearNode<E> next;
 		private int iterModCount;
+		private boolean removeAble;
 		
 		/** Creates a new iterator for the list */
 		public SLLIterator() {
@@ -289,46 +296,48 @@ public class IUSingleLinkedList<E> implements IndexedUnsortedList<E> {
 
 		@Override
 		public boolean hasNext() {
-			if(iterModCount != modCount) {
-				throw new ConcurrentModificationException();
-			}
-			return (next != null);
-		}
+            if (iterModCount != modCount) {
+                throw new ConcurrentModificationException();
+            }
+            return next != null;
+        }
 
 		@Override
 		public E next() {
-			if(!hasNext()) {
-				throw new NoSuchElementException();
-			}
-			previous = current;
-			current = next;
-			next = next.getNext();
-			return current.getElement();
-			
-		}
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            if (current != null) {
+                previous = current;
+            }
+            current = next;
+            next = next.getNext();
+            removeAble = true;
+            return current.getElement();
+        }
 		
 		@Override
 		public void remove() {
-			if(iterModCount != modCount) {
-				throw new ConcurrentModificationException();
-			}
-			if(current == null) {
-				throw new IllegalStateException();
-			}
-			// Remove current node
-			if (previous != null) {
-				previous.setNext(next);
-			} else {
-				front = next;
-			}
-			if (next == null) {
-				rear = previous;
-			}
-			current = null;
-			count--;
-			modCount++;
-			iterModCount++;
-		}
+            if (iterModCount != modCount) {
+                throw new ConcurrentModificationException();
+            }
+            if (current == null) {
+                throw new IllegalStateException();
+            }
+            if (previous == null) {
+                front = next;
+            } else {
+                previous.setNext(next);
+            }
+            if (current == rear) {
+                rear = previous;
+            }
+            current = null;
+            removeAble = false;
+            count--;
+            modCount++;
+            iterModCount++;
+        }
 	}
 
 	// IGNORE THE FOLLOWING CODE
